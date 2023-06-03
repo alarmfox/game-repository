@@ -33,10 +33,11 @@ Usage:
   dev-dependecies    installs development dependencies
   docker-build       builds a docker image
   docker-run         runs a docker container. Needs "config" argument (i.e make docker-run config=$(pwd)/config.json)
-  docker-push        sends the image on a server with ssh (i.e make docker push SSH="10.10.1.1 -p1234")
+  docker-push-ssh    sends the image on a server with ssh (i.e make docker-push-ssh SSH="10.10.1.1 -p1234")
+  docker-push        sends the image on a registry (i.e make docker-push REGISTRY=<registry_name>)
   test               executes all unit tests in the repository. Use COVER_DIR=<PATH> to enable coverage. (i.e make test COVER_DIR=$(pwd)/coverage)
   test-race          executes all unit tests with a race detector. Takes longer
-  test-integration   executes all tests. If CI is set, DB_URI can be used to set database URL, otherwise a docker container is used (i.e make test-integration CI=1 DB_URI=db-url COVER_DIR=/some/path)
+  test-integration   executes all tests. If CI is set, DB_URI can be used to set database URL, otherwis a docker container is used (i.e make test-integration CI=1 DB_URI=db-url COVER_DIR=/some/path)
   clean              remove build files
   help               prints this help message
 ```
