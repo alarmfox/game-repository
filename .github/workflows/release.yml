@@ -20,9 +20,6 @@ jobs:
         ports:
           - 5432:5432
 
-    permissions:
-      actions: write
-      contents: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -56,7 +53,9 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/game-repository:latest
+        tags: |
+          ${{ secrets.DOCKERHUB_USERNAME }}/game-repository:${{github.event.release.tag_name}}
+          ${{ secrets.DOCKERHUB_USERNAME }}/game-repository:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -72,7 +71,8 @@ jobs:
           script: |
             cd /home/giuseppe/services/sad
             docker compose pull
-            docker compose restart sad
+            docker compose down
+            docker compose up -d
     
   releases-matrix:
         needs: test
