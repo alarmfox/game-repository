@@ -39,7 +39,7 @@ docker-push-ssh: docker-build
 docker-push: docker-build
 	docker tag $(APP_NAME):$(GIT_COMMIT) $(REGISTRY)/$(APP_NAME):$(GIT_COMMIT)
 	docker push $(REGISTRY)/$(APP_NAME):$(GIT_COMMIT)
-	docker tag $(APP_NAME):$(GIT_COMMIT) $(REGISTRY)/$(APP_NAME):latest
+	docker tag $(REGISTRY)/$(APP_NAME):$(GIT_COMMIT) $(REGISTRY)/$(APP_NAME):latest
 	docker push $(REGISTRY)/$(APP_NAME):latest
 
 ## test: executes all unit tests in the repository. Use COVER_DIR=<PATH> to enable coverage. (i.e make test COVER_DIR=$(pwd)/coverage)
