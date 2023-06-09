@@ -6,3 +6,6 @@ tmp
 .vscode
 coverage
 env
+docker-compose.yml
+prometheus.yml
+config.docker.json
