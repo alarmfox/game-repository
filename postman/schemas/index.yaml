@@ -913,7 +913,7 @@ paths:
                             schema:
                                 type: array
                                 items:
-                                    $ref: "#/components/schemas/Turn"
+                                    $ref: "#/components/schemas/Robot"
                 "404":
                     description: No result found for the provided id
                     content:
