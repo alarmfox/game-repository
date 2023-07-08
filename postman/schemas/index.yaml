@@ -907,7 +907,7 @@ paths:
                   required: true
             responses:
                 "200":
-                    description: List of turns
+                    description: List of robots
                     content:
                         application/json:
                             schema:
